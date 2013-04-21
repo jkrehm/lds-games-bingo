@@ -11,10 +11,13 @@
 .ui-block-e,
 .ui-block-f,
 .ui-block-g {
+	position: relative;
 	display: block;
 	color: black;
 	float: left;
-	padding: 0 1% 5px 1%;
+	/*padding: 0 1% 5px 1%;*/
+	overflow: hidden;
+	padding-bottom: 5px;
 }
 .ui-grid-a .ui-block-a,
 .ui-grid-a .ui-block-b,
@@ -63,11 +66,15 @@
 	max-width: 124px;
 }
 .bingo-board .card-text {
+	position: absolute;
 	font-size: .75em;
 	text-decoration: none;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	bottom: 2px;
+	left: 0;
+	right: 0;
 }
 @media all and (max-width: 800px) {
 	.bingo-board .card-text {
@@ -81,301 +88,255 @@
 	background: rgb(110, 158, 226);
 }
 
-/* Sprites */
+
+
+/*** Sprites ***/
 .apostle, .atonement, .baptism, .bible, .book_of_mormon, .church, .commandments, .conference, .covenants, .disciple, .family_home_evening, .family, .fasting, .father, .forgive, .gospel, .happiness, .heaven, .holy_ghost, .hymn, .jesus_christ, .joseph_smith, .love, .missionary, .mother, .peace, .pioneers, .prayer, .president_monson, .priesthood, .prophet, .repentance, .restoration, .sacrament, .sacrifice, .salt_lake_city, .savior, .scriptures, .second_coming, .service, .stake, .tabernacle_choir, .temple, .testimony, .ward, .bishop, .faith, .marriage, .charity{
-	background: url(sprites.png) no-repeat;
+	/*background: url(sprites.png) no-repeat;*/
+	position: absolute;
 }
 
 .apostle{
-	background-position: 0 0;
-	width: 124px;
-	height: 124px;
+	top: 0;
+	left: 0:
 }
 
 .atonement{
-	background-position: -124px 0;
-	width: 124px;
-	height: 124px;
+	top: -124px;
+	left: 0:
 }
 
 .baptism{
-	background-position: -248px -1px ;
-	width: 124px;
-	height: 124px;
+	top: -248px;
+	left: -1px;
 }
 
 .bible{
-	background-position: -372px 0;
-	width: 124px;
-	height: 124px;
+	top: -372px;
+	left: 0:
 }
 
 .book_of_mormon{
-	background-position: -496px 0;
-	width: 124px;
-	height: 124px;
+	top: -496px;
+	left: 0:
 }
 
 .church{
-	background-position: -620px 0;
-	width: 124px;
-	height: 124px;
+	top: -620px;
+	left: 0:
 }
 
 .commandments{
-	background-position: -744px 0;
-	width: 124px;
-	height: 124px;
+	top: -744px;
+	left: 0:
 }
 
 .conference{
-	background-position: 0 -124px ;
-	width: 124px;
-	height: 124px;
+	top: 0;
+	left: -124px;
 }
 
 .covenants{
-	background-position: -124px -124px ;
-	width: 124px;
-	height: 124px;
+	top: -124px;
+	left: -124px;
 }
 
 .disciple{
-	background-position: -248px -124px ;
-	width: 124px;
-	height: 124px;
+	top: -248px;
+	left: -124px;
 }
 
 .family_home_evening{
-	background-position: -372px -124px ;
-	width: 124px;
-	height: 124px;
+	top: -372px;
+	left: -124px;
 }
 
 .family{
-	background-position: -496px -124px ;
-	width: 124px;
-	height: 124px;
+	top: -496px;
+	left: -124px;
 }
 
 .fasting{
-	background-position: -620px -124px ;
-	width: 124px;
-	height: 124px;
+	top: -620px;
+	left: -124px;
 }
 
 .father{
-	background-position: -744px -124px ;
-	width: 124px;
-	height: 124px;
+	top: -744px;
+	left: -124px;
 }
 
 .forgive{
-	background-position: 0 -248px ;
-	width: 124px;
-	height: 124px;
+	top: 0;
+	left: -248px;
 }
 
 .gospel{
-	background-position: -124px -248px ;
-	width: 124px;
-	height: 124px;
+	top: -124px;
+	left: -248px;
 }
 
 .happiness{
-	background-position: -248px -248px ;
-	width: 124px;
-	height: 124px;
+	top: -248px;
+	left: -248px;
 }
 
 .heaven{
-	background-position: -372px -248px ;
-	width: 124px;
-	height: 124px;
+	top: -372px;
+	left: -248px;
 }
 
 .holy_ghost{
-	background-position: -496px -248px ;
-	width: 124px;
-	height: 124px;
+	top: -496px;
+	left: -248px;
 }
 
 .hymn{
-	background-position: -620px -248px ;
-	width: 124px;
-	height: 124px;
+	top: -620px;
+	left: -248px;
 }
 
 .jesus_christ{
-	background-position: -744px -248px ;
-	width: 124px;
-	height: 124px;
+	top: -744px;
+	left: -248px;
 }
 
 .joseph_smith{
-	background-position: 0 -370px ;
-	width: 124px;
-	height: 124px;
+	top: 0;
+	left: -370px;
 }
 
 .love{
-	background-position: -124px -372px ;
-	width: 124px;
-	height: 124px;
+	top: -124px;
+	left: -372px;
 }
 
 .missionary{
-	background-position: -248px -372px ;
-	width: 124px;
-	height: 124px;
+	top: -248px;
+	left: -372px;
 }
 
 .mother{
-	background-position: -372px -372px ;
-	width: 124px;
-	height: 124px;
+	top: -372px;
+	left: -372px;
 }
 
 .peace{
-	background-position: -496px -372px ;
-	width: 124px;
-	height: 124px;
+	top: -496px;
+	left: -372px;
 }
 
 .pioneers{
-	background-position: -620px -372px ;
-	width: 124px;
-	height: 124px;
+	top: -620px;
+	left: -372px;
 }
 
 .prayer{
-	background-position: -744px -372px ;
-	width: 124px;
-	height: 124px;
+	top: -744px;
+	left: -372px;
 }
 
 .president_monson{
-	background-position: 0 -496px ;
-	width: 124px;
-	height: 124px;
+	top: 0;
+	left: -496px;
 }
 
 .priesthood{
-	background-position: -124px -496px ;
-	width: 124px;
-	height: 124px;
+	top: -124px;
+	left: -496px;
 }
 
 .prophet{
-	background-position: -248px -496px ;
-	width: 124px;
-	height: 124px;
+	top: -248px;
+	left: -496px;
 }
 
 .repentance{
-	background-position: -372px -496px ;
-	width: 124px;
-	height: 124px;
+	top: -372px;
+	left: -496px;
 }
 
 .restoration{
-	background-position: -496px -496px ;
-	width: 124px;
-	height: 124px;
+	top: -496px;
+	left: -496px;
 }
 
 .sacrament{
-	background-position: -620px -496px ;
-	width: 124px;
-	height: 124px;
+	top: -620px;
+	left: -496px;
 }
 
 .sacrifice{
-	background-position: -744px -496px ;
-	width: 124px;
-	height: 124px;
+	top: -744px;
+	left: -496px;
 }
 
 .salt_lake_city{
-	background-position: 0 -620px ;
-	width: 124px;
-	height: 124px;
+	top: 0;
+	left: -620px;
 }
 
 .savior{
-	background-position: -124px -620px ;
-	width: 124px;
-	height: 124px;
+	top: -124px;
+	left: -620px;
 }
 
 .scriptures{
-	background-position: -248px -620px ;
-	width: 124px;
-	height: 124px;
+	top: -248px;
+	left: -620px;
 }
 
 .second_coming{
-	background-position: -372px -612px ;
-	width: 124px;
-	height: 124px;
+	top: -372px;
+	left: -612px;
 }
 
 .service{
-	background-position: -496px -620px ;
-	width: 124px;
-	height: 124px;
+	top: -496px;
+	left: -620px;
 }
 
 .stake{
-	background-position: -620px -620px ;
-	width: 124px;
-	height: 124px;
+	top: -620px;
+	left: -620px;
 }
 
 .tabernacle_choir{
-	background-position: -744px -620px ;
-	width: 124px;
-	height: 124px;
+	top: -744px;
+	left: -620px;
 }
 
 .temple{
-	background-position: 0 -744px ;
-	width: 124px;
-	height: 124px;
+	top: 0;
+	left: -744px;
 }
 
 .testimony{
-	background-position: -124px -744px ;
-	width: 124px;
-	height: 124px;
+	top: -124px;
+	left: -744px;
 }
 
 .ward{
-	background-position: -248px -744px ;
-	width: 124px;
-	height: 124px;
+	top: -248px;
+	left: -744px;
 }
 
 .bishop{
-	background-position: -372px -744px ;
-	width: 124px;
-	height: 124px;
+	top: -372px;
+	left: -744px;
 }
 
 .faith{
-	background-position: -496px -744px ;
-	width: 124px;
-	height: 124px;
+	top: -496px;
+	left: -744px;
 }
 
 .marriage{
-	background-position: -620px -744px ;
-	width: 124px;
-	height: 124px;
+	top: -620px;
+	left: -744px;
 }
 
 .charity{
-	background-position: -744px -744px ;
-	width: 124px;
-	height: 124px;
+	top: -744px;
+	left: -744px;
 }

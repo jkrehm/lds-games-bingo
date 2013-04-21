@@ -2,222 +2,222 @@
     "cards": [
         {
             "text": "Apostle",
-            "image": "apostle.png",
+            "image": "apostle",
             "selected": false
         },
         {
             "text": "Atonement",
-            "image": "atonement.png",
+            "image": "atonement",
             "selected": false
         },
         {
             "text": "Baptism",
-            "image": "baptism.png",
+            "image": "baptism",
             "selected": false
         },
         {
             "text": "Bible",
-            "image": "bible.png",
+            "image": "bible",
             "selected": false
         },
         {
             "text": "Book of Mormon",
-            "image": "book_of_mormon.png",
+            "image": "book_of_mormon",
             "selected": false
         },
         {
             "text": "Church",
-            "image": "church.png",
+            "image": "church",
             "selected": false
         },
         {
             "text": "Commandments",
-            "image": "commandments.png",
+            "image": "commandments",
             "selected": false
         },
         {
             "text": "Conference",
-            "image": "conference.png",
+            "image": "conference",
             "selected": false
         },
         {
             "text": "Covenants",
-            "image": "covenants.png",
+            "image": "covenants",
             "selected": false
         },
         {
             "text": "Disciple",
-            "image": "disciple.png",
+            "image": "disciple",
             "selected": false
         },
         {
             "text": "Family",
-            "image": "family.png",
+            "image": "family",
             "selected": false
         },
         {
             "text": "Family Home Evening",
-            "image": "family_home_evening.png",
+            "image": "family_home_evening",
             "selected": false
         },
         {
             "text": "Fasting",
-            "image": "fasting.png",
+            "image": "fasting",
             "selected": false
         },
         {
             "text": "Father",
-            "image": "father.png",
+            "image": "father",
             "selected": false
         },
         {
             "text": "Forgive",
-            "image": "forgive.png",
+            "image": "forgive",
             "selected": false
         },
         {
             "text": "Gospel",
-            "image": "gospel.png",
+            "image": "gospel",
             "selected": false
         },
         {
             "text": "Happiness",
-            "image": "happiness.png",
+            "image": "happiness",
             "selected": false
         },
         {
             "text": "Heaven",
-            "image": "heaven.png",
+            "image": "heaven",
             "selected": false
         },
         {
             "text": "Holy Ghost",
-            "image": "holy_ghost.png",
+            "image": "holy_ghost",
             "selected": false
         },
         {
             "text": "Hymn",
-            "image": "hymn.png",
+            "image": "hymn",
             "selected": false
         },
         {
             "text": "Joseph Smith",
-            "image": "joseph_smith.png",
+            "image": "joseph_smith",
             "selected": false
         },
         {
             "text": "Love",
-            "image": "love.png",
+            "image": "love",
             "selected": false
         },
         {
             "text": "Missionary",
-            "image": "missionary.png",
+            "image": "missionary",
             "selected": false
         },
         {
             "text": "Mother",
-            "image": "mother.png",
+            "image": "mother",
             "selected": false
         },
         {
             "text": "Peace",
-            "image": "peace.png",
+            "image": "peace",
             "selected": false
         },
         {
             "text": "Pioneers",
-            "image": "pioneers.png",
+            "image": "pioneers",
             "selected": false
         },
         {
             "text": "Prayer",
-            "image": "prayer.png",
+            "image": "prayer",
             "selected": false
         },
         {
             "text": "President Monson",
-            "image": "president_monson.png",
+            "image": "president_monson",
             "selected": false
         },
         {
             "text": "Priesthood",
-            "image": "priesthood.png",
+            "image": "priesthood",
             "selected": false
         },
         {
             "text": "Prophet",
-            "image": "prophet.png",
+            "image": "prophet",
             "selected": false
         },
         {
             "text": "Repentance",
-            "image": "repentance.png",
+            "image": "repentance",
             "selected": false
         },
         {
             "text": "Restoration",
-            "image": "restoration.png",
+            "image": "restoration",
             "selected": false
         },
         {
             "text": "Sacrament",
-            "image": "sacrament.png",
+            "image": "sacrament",
             "selected": false
         },
         {
             "text": "Sacrifice",
-            "image": "sacrifice.png",
+            "image": "sacrifice",
             "selected": false
         },
         {
             "text": "Salt Lake City",
-            "image": "salt_lake_city.png",
+            "image": "salt_lake_city",
             "selected": false
         },
         {
             "text": "Savior",
-            "image": "savior.png",
+            "image": "savior",
             "selected": false
         },
         {
             "text": "Scriptures",
-            "image": "scriptures.png",
+            "image": "scriptures",
             "selected": false
         },
         {
             "text": "Second Coming",
-            "image": "second_coming.png",
+            "image": "second_coming",
             "selected": false
         },
         {
             "text": "Service",
-            "image": "service.png",
+            "image": "service",
             "selected": false
         },
         {
             "text": "Stake",
-            "image": "stake.png",
+            "image": "stake",
             "selected": false
         },
         {
             "text": "Tabernacle Choir",
-            "image": "tabernacle_choir.png",
+            "image": "tabernacle_choir",
             "selected": false
         },
         {
             "text": "Temple",
-            "image": "temple.png",
+            "image": "temple",
             "selected": false
         },
         {
             "text": "Testimony",
-            "image": "testimony.png",
+            "image": "testimony",
             "selected": false
         },
         {
             "text": "Ward",
-            "image": "ward.png",
+            "image": "ward",
             "selected": false
         }
     ]

@@ -51,7 +51,7 @@ var bingo = {
 				// Put Christ at the center
 				bingo.cards[center] = {
 					text: 'Jesus Christ',
-					image: 'jesus_christ.png',
+					image: 'jesus_christ',
 					selected: false
 				};
 
@@ -83,17 +83,19 @@ var bingo = {
 		var grid_letter = bingo.getGridLetter(),
 			html = '<div class="bingo-board ui-grid-'+grid_letter+'">'+"\n",
 			k = 0,
-			selected;
+			classes;
 
 		for (var i = 0; i < bingo.size; i++) {
 			bingo.grid[i] = new Array(new Array());
 
 			for (var j = 0; j < bingo.size; j++) {
 
-				selected = bingo.cards[k].selected ? ' block-selected' : '';
+				classes = 'ui-block-' + bingo.letters[j];
+				classes += bingo.cards[k].selected ? ' block-selected' : '';
 
-				html += '<a href="#" class="ui-block-'+bingo.letters[j]+selected+'" data-position="'+j+'x'+i+'">'+"\n";
-				html += '<img src="img/bingo/'+bingo.cards[k].image+'"/>'+"\n";
+				html += '<a href="" class="'+classes+'" data-position="'+j+'x'+i+'">'+"\n";
+				// html += '<img src="img/bingo/'+bingo.cards[k].image+'"/>'+"\n";
+				html += '<img src="img/bingo/sprites.png" class="'+bingo.cards[k].image+'"/>'+"\n";
 				html += '<div class="card-text">'+bingo.cards[k].text+'</div>'+"\n";
 				html += '</a>'+"\n";
 

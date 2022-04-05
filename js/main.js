@@ -18,7 +18,7 @@ function Cell({ isMarked, image, onClick, text }) {
     onClick=${onClick}
   >
     <img src="img/bingo/${image}" alt=${text} />
-    <span>${text}</span>
+    <p>${text}</p>
   </div>`;
 }
 

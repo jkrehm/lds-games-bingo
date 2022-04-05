@@ -1,14 +1,17 @@
 .app {
   color: #333;
   display: flex;
+  flex-direction: column;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
-  gap: 16px;
+  gap: 32px;
   line-height: 20px;
   padding: 16px;
 }
 @media screen and (min-width: 768px) {
   .app {
+    flex-direction: row;
+    gap: 16px;
     padding: 32px;
   }
 }
@@ -17,7 +20,11 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: min(30vw, 30vh);
+}
+@media screen and (min-width: 768px) {
+  .controls {
+    width: min(30vw, 30vh);
+  }
 }
 
 .button {
@@ -38,12 +45,15 @@
 }
 
 .board {
+  --square-size: calc(min(100vw, 100vh) - 32px);
+
   display: grid;
+  height: var(--square-size);
+  width: var(--square-size);
 }
 @media screen and (min-width: 768px) {
   .board {
-    height: min(70vw, 70vh);
-    width: min(70vw, 70vh);
+    --square-size: calc(min(70vw, 70vh) - 64px);
   }
 }
 
@@ -60,9 +70,26 @@
   display: grid;
   grid-template-rows: 1fr 1rem;
   justify-items: center;
+  padding: 4px;
+  text-align: center;
 }
 .cell.is-marked {
   background: rgb(110, 158, 226);
+}
+
+.cell p {
+  font-size: 10px;
+  line-height: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .cell p {
+    font-size: 12px;
+    line-height: inherit;
+  }
 }
 
 @media print {

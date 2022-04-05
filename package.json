@@ -1,0 +1,12 @@
+{
+  "name": "lds-bingo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jkrehm/lds-games-bingo",
+  "author": "Jonathan Rehm <jonathan@rehm.me>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}

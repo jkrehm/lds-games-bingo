@@ -1,215 +1,126 @@
-var bingo = {
-	store: Modernizr.localstorage && true,
-	letters: ['a','b','c','d','e','f','g'],
-	cards: [],
-	size: 5,
-	grid: [],
+import { h, render } from "https://unpkg.com/preact@latest?module";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module";
+import htm from "https://unpkg.com/htm@3.1.0/dist/htm.module.js?module";
+import useCalculateWin from "./calculate-win.js";
+import cardOptions from "./card-options.js";
+import { getBoardClass, shuffleArray } from "./utils.js";
 
-	inititalize: function() {
-		var url = $.url();
+const html = htm.bind(h);
 
-		// Show print version
-		if (url.param('print') == 'y') {
-			$('.no-print').hide();
-		};
+function Cell({ isMarked, image, onClick, text }) {
+  return html`<div
+    class="cell ${isMarked ? "is-marked" : ""}"
+    onClick=${onClick}
+  >
+    <img src="img/bingo/${image}" alt=${text} />
+    <span>${text}</span>
+  </div>`;
+}
 
-		// Get board size from local storage
-		if (bingo.store && localStorage.getItem('bingo_board_size') !== null) {
-			bingo.size = localStorage.getItem('bingo_board_size');
-		};
+function generateBoard(boardSize) {
+  const options = shuffleArray(cardOptions).slice(0, boardSize * boardSize);
 
-		// Get board size from query string
-		if (_.indexOf([3,5], Number(url.param('size')), true) > -1) {
-			bingo.size = Number(url.param('size'));
-		};
+  const x = Math.floor(boardSize / 2);
+  const center = boardSize * x + x;
 
-		$('[id="board_size_'+bingo.size+'"]').attr('checked', true);
+  options[center] = {
+    text: "Jesus Christ",
+    image: "jesus_christ.png",
+  };
 
-		bingo.generate();
-	},
+  return options;
+}
 
-	createNew: function(params) {
-		$.extend(bingo, params);
+function App() {
+  const [boardSize, setBoardSize] = useState(5);
+  const [board, setBoard] = useState([]);
+  const [marks, setMarks] = useState([]);
+  const [shouldGenerateBoard, setShouldGenerateBoard] = useState(0);
 
-		if (bingo.store) {
-			localStorage.removeItem('bingo_cards');
-			localStorage.setItem('bingo_board_size', bingo.size);
-		}
+  const isWin = useCalculateWin(boardSize, marks);
 
-		bingo.getCards();
-	},
+  const onNewGame = useCallback((e) => {
+    e.preventDefault();
 
-	getCards: function() {
-		if (!bingo.store || localStorage.getItem('bingo_cards') === null) {
+    const formData = new FormData(e.target);
+    const formProps = Object.fromEntries(formData);
 
-			$.getJSON('bingo.json', function(data) {
-				var x = Math.floor(bingo.size/2),
-					center = bingo.size * x + x;
+    setMarks([]);
+    setBoardSize(
+      Number.parseInt(
+        formProps["board-size"] instanceof File ? "5" : formProps["board-size"],
+        10
+      )
+    );
+    setShouldGenerateBoard(Date.now());
+  }, []);
 
-				bingo.cards = _.shuffle(data.cards);
+  const onCellClick = useMemo(
+    () => (index) => () => {
+      setMarks((v) =>
+        v.includes(index)
+          ? v.filter((i) => i !== index)
+          : [...v].concat(index).sort((a, b) => a - b)
+      );
+    },
+    []
+  );
 
-				// Put Christ at the center
-				bingo.cards[center] = {
-					text: 'Jesus Christ',
-					image: 'jesus_christ.png',
-					selected: false
-				};
+  useEffect(() => {
+    if (isWin) alert("Bingo!");
+  }, [isWin]);
 
-				if (bingo.store) {
-					localStorage.setItem('bingo_cards', JSON.stringify(bingo.cards));
-				}
+  useEffect(() => {
+    setBoard(generateBoard(boardSize));
+  }, [boardSize, shouldGenerateBoard]);
 
-				bingo.generate();
-			});
+  return html`
+    <div class="app">
+      <form class="controls" onsubmit=${onNewGame}>
+        <fieldset>
+          <legend>Grid Size</legend>
+          <label class="radio-button-label" for="board-size-3">
+            <input
+              type="radio"
+              class="radio-button"
+              name="board-size"
+              id="board-size-3"
+              value="3"
+              checked=${boardSize === 3 ? "checked" : ""}
+            />
+            3x3
+          </label>
+          <label class="radio-button-label" for="board-size-5">
+            <input
+              type="radio"
+              class="radio-button"
+              name="board-size"
+              id="board-size-5"
+              value="5"
+              checked=${boardSize === 5 ? "checked" : ""}
+            />
+            5x5
+          </label>
+        </fieldset>
+        <button type="submit" class="button button-primary">New Game</button>
+      </form>
+      <section class="board ${getBoardClass(boardSize)}">
+        ${board.map(
+          (cell, index) =>
+            html`<${Cell}
+              ...${cell}
+              isMarked=${marks.includes(index)}
+              onClick=${onCellClick(index)}
+            />`
+        )}
+      </section>
+    </div>
+  `;
+}
 
-		} else {
-
-			bingo.cards = JSON.parse(localStorage.getItem('bingo_cards'));
-
-			bingo.generate();
-
-		}
-	},
-
-	generate: function() {
-		$('.bingo-board-wrapper').hide();
-
-		if (bingo.cards.length === 0) {
-			bingo.getCards();
-
-			return true;
-		};
-
-		var grid_letter = bingo.getGridLetter(),
-			html = '<div class="bingo-board ui-grid-'+grid_letter+'">'+"\n",
-			k = 0,
-			selected;
-
-		for (var i = 0; i < bingo.size; i++) {
-			bingo.grid[i] = new Array(new Array());
-
-			for (var j = 0; j < bingo.size; j++) {
-
-				selected = bingo.cards[k].selected ? ' block-selected' : '';
-
-				html += '<a href="#" class="ui-block-'+bingo.letters[j]+selected+'" data-position="'+j+'x'+i+'">'+"\n";
-				html += '<img src="img/bingo/'+bingo.cards[k].image+'"/>'+"\n";
-				html += '<div class="card-text">'+bingo.cards[k].text+'</div>'+"\n";
-				html += '</a>'+"\n";
-
-				bingo.grid[i][j] = bingo.cards[k++];
-				bingo.grid[i][j].selectable = true;
-			};
-		};
-
-		html += '<div class="clearfix"></div></div>';
-
-		$('.bingo-board-wrapper').html(html).imagesLoaded(function() {
-			$(this).show();
-		});
-	},
-
-	getGridLetter: function() {
-		var index = bingo.size - 3;
-
-		if (index > 0) {
-			index /= 2;
-		};
-
-		return bingo.letters[index];
-	},
-
-	selectBlock: function(block) {
-		var x, y, id, position;
-
-		position = $(block).data('position').split('x');
-		x = Number(position[0]);
-		y = Number(position[1]);
-
-		if (!bingo.grid[y][x].selectable) {
-			return;
-		};
-
-		if (bingo.grid[y][x].selected) {
-			$(block).removeClass('block-selected');
-		} else {
-			$(block).addClass('block-selected');
-		};
-
-		bingo.grid[y][x].selected = !bingo.grid[y][x].selected;
-
-		if (bingo.store) {
-			localStorage.setItem('bingo_cards', JSON.stringify(bingo.cards));
-		}
-
-		bingo.checkForBingo(x, y);
-	},
-
-	checkForBingo: function(x, y) {
-		if (bingo.checkDown(x) || bingo.checkAcross(y) || bingo.checkDiagonal(x, y)) {
-			bingo.bingo();
-		};
-	},
-
-	checkDown: function(x) {
-		for (var i = 0; i < bingo.size; i++) {
-			if (!bingo.grid[i][x].selected) {
-				return false;
-			};
-		}
-
-		return true;
-	},
-
-	checkAcross: function(y) {
-		for (var i = 0; i < bingo.size; i++) {
-			if (!bingo.grid[y][i].selected) {
-				return false;
-			};
-		}
-
-		return true;
-	},
-
-	checkDiagonal: function(x, y) {
-		if (x !== y && x !== (bingo.size-1-y)) {
-			return false;
-		};
-
-		for (var i = 0; i < bingo.size; i++) {
-
-			left_right = (x === y && !bingo.grid[i][i].selected);
-			right_left = (x !== y && !bingo.grid[bingo.size-1-i][i].selected);
-
-			if (left_right || right_left) {
-				return false;
-			}
-		}
-
-		return true;
-	},
-
-	bingo: function() {
-		alert('Bingo!');
-	}
-};
-
-$(document).ready(function() {
-	bingo.inititalize();
-
-	// Create new board
-	$('#make_board').click(function() {
-		bingo.createNew({
-			size: $('[name="size"]:checked').val()
-		});
-
-		return false;
-	});
-
-	// Select card
-	$(document).on('click', '[class^="ui-block"]', function() {
-		bingo.selectBlock(this);
-
-		return false;
-	});
-});
+render(html`<${App} />`, document.querySelector("#root"));

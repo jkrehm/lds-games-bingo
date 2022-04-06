@@ -51,7 +51,7 @@ function usePrevious(value) {
 }
 
 function useCalculateWin(boardSize, marks) {
-  const previousMarks = usePrevious(marks);
+  const previousMarks = usePrevious(marks) ?? [];
   const [newMark] =
     previousMarks === marks
       ? []

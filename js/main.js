@@ -8,6 +8,11 @@ import {
 import htm from "https://unpkg.com/htm@3.1.0/dist/htm.module.js?module";
 import useCalculateWin from "./calculate-win.js";
 import cardOptions from "./card-options.js";
+import {
+  getFromLocalStorage,
+  saveBoardToLocalStorage,
+  saveMarksToLocalStorage,
+} from "./storage.js";
 import { getBoardClass, shuffleArray } from "./utils.js";
 
 const html = htm.bind(h);
@@ -36,11 +41,22 @@ function generateBoard(boardSize) {
   return options;
 }
 
+function getDefaults() {
+  const { board, marks } = getFromLocalStorage();
+  const boardSize = board.length ? Math.sqrt(board.length) : 5;
+
+  return { board, boardSize, marks };
+}
+
+const defaults = getDefaults();
+
 function App() {
-  const [boardSize, setBoardSize] = useState(5);
-  const [board, setBoard] = useState([]);
-  const [marks, setMarks] = useState([]);
-  const [shouldGenerateBoard, setShouldGenerateBoard] = useState(0);
+  const [boardSize, setBoardSize] = useState(defaults.boardSize);
+  const [board, setBoard] = useState(defaults.board);
+  const [marks, setMarks] = useState(defaults.marks);
+  const [shouldGenerateBoard, setShouldGenerateBoard] = useState(
+    defaults.board.length > 0 ? 0 : 1
+  );
 
   const isWin = useCalculateWin(boardSize, marks);
 
@@ -76,8 +92,18 @@ function App() {
   }, [isWin]);
 
   useEffect(() => {
+    if (!shouldGenerateBoard) return;
+
     setBoard(generateBoard(boardSize));
   }, [boardSize, shouldGenerateBoard]);
+
+  useEffect(() => {
+    saveBoardToLocalStorage(board);
+  }, [board]);
+
+  useEffect(() => {
+    saveMarksToLocalStorage(marks);
+  }, [marks]);
 
   return html`
     <div class="app">

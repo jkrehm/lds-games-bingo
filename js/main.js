@@ -140,6 +140,7 @@ function App() {
           (cell, index) =>
             html`<${Cell}
               ...${cell}
+              key=${cell.text}
               isMarked=${marks.includes(index)}
               onClick=${onCellClick(index)}
             />`

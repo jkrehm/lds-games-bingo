@@ -24,7 +24,7 @@ function checkAcross(markedGrid, y) {
 }
 
 function checkDiagonal(markedGrid, x, y) {
-  if (x !== y && x !== markedGrid - 1 - y) {
+  if (x !== y && x !== markedGrid.length - 1 - y) {
     return false;
   }
 

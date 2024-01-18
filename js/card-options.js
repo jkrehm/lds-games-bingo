@@ -32,12 +32,20 @@ export default [
     image: "conference.png",
   },
   {
+    text: "Covenant Path",
+    image: "covenant_path.jpg",
+  },
+  {
     text: "Covenants",
     image: "covenants.png",
   },
   {
     text: "Disciple",
     image: "disciple.png",
+  },
+  {
+    text: "Faith",
+    image: "faith.png",
   },
   {
     text: "Family",
@@ -76,8 +84,8 @@ export default [
     image: "holy_ghost.png",
   },
   {
-    text: "Hymn",
-    image: "hymn.png",
+    text: "Music",
+    image: "music.png",
   },
   {
     text: "Joseph Smith",
@@ -108,8 +116,8 @@ export default [
     image: "prayer.png",
   },
   {
-    text: "President Monson",
-    image: "president_monson.png",
+    text: "President Nelson",
+    image: "president_nelson.webp",
   },
   {
     text: "Priesthood",
@@ -170,9 +178,5 @@ export default [
   {
     text: "Testimony",
     image: "testimony.png",
-  },
-  {
-    text: "Ward",
-    image: "ward.png",
   },
 ];

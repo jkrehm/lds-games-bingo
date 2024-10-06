@@ -1,182 +1,186 @@
 export default [
   {
-    text: "Apostle",
-    image: "apostle.png",
+    text: "adversity",
+    image: "adversity.webp",
   },
   {
-    text: "Atonement",
-    image: "atonement.png",
+    text: "agency",
+    image: "agency.webp",
   },
   {
-    text: "Baptism",
-    image: "baptism.png",
+    text: "angel",
+    image: "angel.webp",
   },
   {
-    text: "Bible",
-    image: "bible.png",
+    text: "apostasy",
+    image: "apostasy.webp",
   },
   {
-    text: "Book of Mormon",
-    image: "book_of_mormon.png",
+    text: "apostle",
+    image: "apostle.webp",
   },
   {
-    text: "Church",
-    image: "church.png",
+    text: "atonement",
+    image: "atonement.webp",
   },
   {
-    text: "Commandments",
-    image: "commandments.png",
+    text: "apostle",
+    image: "apostle.webp",
   },
   {
-    text: "Conference",
-    image: "conference.png",
+    text: "authority",
+    image: "authority.webp",
   },
   {
-    text: "Covenant Path",
-    image: "covenant_path.jpg",
+    text: "baptism",
+    image: "baptism.webp",
   },
   {
-    text: "Covenants",
-    image: "covenants.png",
+    text: "believe",
+    image: "believe.webp",
   },
   {
-    text: "Disciple",
-    image: "disciple.png",
+    text: "bible",
+    image: "bible.webp",
   },
   {
-    text: "Faith",
-    image: "faith.png",
+    text: "bishop",
+    image: "bishop.webp",
   },
   {
-    text: "Family",
-    image: "family.png",
+    text: "blessing",
+    image: "blessing.webp",
   },
   {
-    text: "Family Home Evening",
-    image: "family_home_evening.png",
+    text: "book of mormon",
+    image: "book_of_mormon.webp",
   },
   {
-    text: "Fasting",
-    image: "fasting.png",
+    text: "charity",
+    image: "charity.webp",
   },
   {
-    text: "Father",
-    image: "father.png",
+    text: "choir",
+    image: "choir.webp",
+  },
+  {
+    text: "christlike",
+    image: "christlike.webp",
+  },
+  {
+    text: "church",
+    image: "church.webp",
+  },
+  {
+    text: "comforter",
+    image: "comforter.webp",
+  },
+  {
+    text: "commandment",
+    image: "commandment.webp",
+  },
+  // {
+  //   text: "Conference",
+  //   image: "conference.webp",
+  // },
+  // {
+  //   text: "Covenant Path",
+  //   image: "covenant_path.jpg",
+  // },
+  // {
+  //   text: "Covenants",
+  //   image: "covenants.webp",
+  // },
+  // {
+  //   text: "Disciple",
+  //   image: "disciple.webp",
+  // },
+  // {
+  //   text: "Faith",
+  //   image: "faith.webp",
+  // },
+  {
+    text: "family",
+    image: "family.webp",
+  },
+  {
+    text: "forgive",
+    image: "forgive.webp",
   },
   {
     text: "Forgive",
-    image: "forgive.png",
+    image: "forgive.webp",
   },
   {
-    text: "Gospel",
-    image: "gospel.png",
+    text: "gratitude",
+    image: "gratitude.webp",
   },
   {
-    text: "Happiness",
-    image: "happiness.png",
+    text: "heavenly father",
+    image: "heavenly_father.webp",
   },
   {
-    text: "Heaven",
-    image: "heaven.png",
+    text: "joseph smith",
+    image: "joseph_smith.webp",
   },
   {
-    text: "Holy Ghost",
-    image: "holy_ghost.png",
+    text: "marriage",
+    image: "marriage.webp",
   },
   {
-    text: "Music",
-    image: "music.png",
+    text: "missionary",
+    image: "missionary.webp",
   },
   {
-    text: "Joseph Smith",
-    image: "joseph_smith.png",
+    text: "pioneer",
+    image: "pioneer.webp",
   },
   {
-    text: "Love",
-    image: "love.png",
+    text: "plan of salvation",
+    image: "plan_of_salvation.webp",
   },
   {
-    text: "Missionary",
-    image: "missionary.png",
+    text: "pray",
+    image: "pray.webp",
   },
   {
-    text: "Mother",
-    image: "mother.png",
+    text: "priesthood",
+    image: "priesthood.webp",
   },
   {
-    text: "Peace",
-    image: "peace.png",
+    text: "prophets",
+    image: "prophets.webp",
   },
   {
-    text: "Pioneers",
-    image: "pioneers.png",
+    text: "repentance",
+    image: "repentance.webp",
   },
   {
-    text: "Prayer",
-    image: "prayer.png",
+    text: "revelation",
+    image: "revelation.webp",
   },
   {
-    text: "President Nelson",
-    image: "president_nelson.webp",
+    text: "sabbath",
+    image: "sabbath.webp",
   },
   {
-    text: "Priesthood",
-    image: "priesthood.png",
+    text: "sacrament",
+    image: "sacrament.webp",
   },
   {
-    text: "Prophet",
-    image: "prophet.png",
+    text: "second coming",
+    image: "second_coming.webp",
   },
   {
-    text: "Repentance",
-    image: "repentance.png",
+    text: "temple",
+    image: "temple.webp",
   },
   {
-    text: "Restoration",
-    image: "restoration.png",
+    text: "testimony",
+    image: "testimony.webp",
   },
   {
-    text: "Sacrament",
-    image: "sacrament.png",
-  },
-  {
-    text: "Sacrifice",
-    image: "sacrifice.png",
-  },
-  {
-    text: "Salt Lake City",
-    image: "salt_lake_city.png",
-  },
-  {
-    text: "Savior",
-    image: "savior.png",
-  },
-  {
-    text: "Scriptures",
-    image: "scriptures.png",
-  },
-  {
-    text: "Second Coming",
-    image: "second_coming.png",
-  },
-  {
-    text: "Service",
-    image: "service.png",
-  },
-  {
-    text: "Stake",
-    image: "stake.png",
-  },
-  {
-    text: "Tabernacle Choir",
-    image: "tabernacle_choir.png",
-  },
-  {
-    text: "Temple",
-    image: "temple.png",
-  },
-  {
-    text: "Testimony",
-    image: "testimony.png",
+    text: "tithing",
+    image: "tithing.webp",
   },
 ];

@@ -35,7 +35,7 @@ function generateBoard(boardSize) {
 
   options[center] = {
     text: "Jesus Christ",
-    image: "jesus_christ.png",
+    image: "jesus_christ.webp",
   };
 
   return options;

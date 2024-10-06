@@ -19,3 +19,9 @@ export function shuffleArray(arrayIn) {
 
   return arrayOut;
 }
+
+export function classnames(...args) {
+  return args.filter(Boolean).join(" ").trim();
+}
+
+export const cx = classnames

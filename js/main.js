@@ -6,14 +6,14 @@ import {
   useState,
 } from "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module";
 import htm from "https://unpkg.com/htm@3.1.0/dist/htm.module.js?module";
-import useCalculateWin from "./calculate-win.js";
-import cardOptions from "./card-options.js";
+import useCalculateWin from "./useCalculateWin.js";
+import cardOptions from "./CardOptions.js";
 import {
   getFromLocalStorage,
   saveBoardToLocalStorage,
   saveMarksToLocalStorage,
 } from "./storage.js";
-import { cx, getBoardClass, shuffleArray } from "./utils.js";
+import { cx, shuffleArray } from "./utils.js";
 
 const html = htm.bind(h);
 

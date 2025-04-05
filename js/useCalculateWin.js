@@ -50,7 +50,7 @@ function usePrevious(value) {
   return ref.current;
 }
 
-function useCalculateWin(boardSize, marks) {
+export default function useCalculateWin(boardSize, marks) {
   const previousMarks = usePrevious(marks) ?? [];
   const [newMark] =
     previousMarks === marks
@@ -82,5 +82,3 @@ function useCalculateWin(boardSize, marks) {
     checkDiagonal(markedGrid, x, y)
   );
 }
-
-export default useCalculateWin;

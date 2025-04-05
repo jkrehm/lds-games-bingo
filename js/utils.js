@@ -1,14 +1,3 @@
-export function getBoardClass(boardSize) {
-  switch (boardSize) {
-    case 3:
-      return "board-3";
-    case 5:
-      return "board-5";
-    default:
-      throw new Error("Unsupported board size.");
-  }
-}
-
 export function shuffleArray(arrayIn) {
   const arrayOut = [...arrayIn];
 
@@ -24,4 +13,4 @@ export function classnames(...args) {
   return args.filter(Boolean).join(" ").trim();
 }
 
-export const cx = classnames
+export const cx = classnames;

@@ -6,7 +6,6 @@ export default [
   { text: "angel", image: "angel.webp" },
   { text: "apostasy", image: "apostasy.webp" },
   { text: "apostle", image: "apostle.webp" },
-  { text: "apostle", image: "apostle.webp" },
   { text: "armor of god", image: "armor_of_god.webp" },
   { text: "atonement", image: "atonement.webp" },
   { text: "authority", image: "authority.webp" },

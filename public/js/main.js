@@ -22,7 +22,7 @@ function Cell({ className, isMarked, image, onClick, text }) {
     class="${cx(
       className,
       "grid gap-1 grid-rows-[1fr_1rem] p-1 text-center border border-gray-300 items-center justify-items-center",
-      isMarked && "bg-blue-300"
+      isMarked && "bg-blue-300",
     )}"
     onClick=${onClick}
   >
@@ -35,7 +35,11 @@ function Cell({ className, isMarked, image, onClick, text }) {
 }
 
 function generateBoard(boardSize) {
-  const options = shuffleArray(cardOptions).slice(0, boardSize * boardSize);
+  const weightedOptions = cardOptions.flatMap((option) =>
+    Array(option.weight).fill(option),
+  );
+
+  const options = shuffleArray(weightedOptions).slice(0, boardSize * boardSize);
 
   const x = Math.floor(boardSize / 2);
   const center = boardSize * x + x;

@@ -72,7 +72,7 @@ function App() {
   const [board, setBoard] = useState(defaults.board);
   const [marks, setMarks] = useState(defaults.marks);
   const [shouldGenerateBoard, setShouldGenerateBoard] = useState(
-    defaults.board.length > 0 ? 0 : 1
+    defaults.board.length > 0 ? 0 : 1,
   );
 
   const isWin = useCalculateWin(boardSize, marks);
@@ -87,8 +87,8 @@ function App() {
     setBoardSize(
       Number.parseInt(
         formProps["board-size"] instanceof File ? "5" : formProps["board-size"],
-        10
-      )
+        10,
+      ),
     );
     setShouldGenerateBoard(Date.now());
   }, []);
@@ -98,10 +98,10 @@ function App() {
       setMarks((v) =>
         v.includes(index)
           ? v.filter((i) => i !== index)
-          : [...v].concat(index).sort((a, b) => a - b)
+          : [...v].concat(index).sort((a, b) => a - b),
       );
     },
-    []
+    [],
   );
 
   useEffect(() => {
@@ -159,7 +159,7 @@ function App() {
           "grid w-fit h-full max-h-[calc(100vh-32px)] max-w-[calc(100vw-32px)] aspect-square",
           boardSize === 3
             ? "grid-rows-3 grid-cols-3"
-            : "grid-rows-5 grid-cols-5"
+            : "grid-rows-5 grid-cols-5",
         )}
       >
         ${board.map(
@@ -169,7 +169,7 @@ function App() {
               key=${cell.text}
               isMarked=${marks.includes(index)}
               onClick=${onCellClick(index)}
-            />`
+            />`,
         )}
         <Cell className="invisible w-[200px]" />
       </section>

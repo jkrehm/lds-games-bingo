@@ -13,7 +13,7 @@ import {
   saveBoardToLocalStorage,
   saveMarksToLocalStorage,
 } from "./storage.js";
-import { cx, shuffleArray } from "./utils.js";
+import { cx, shuffleArray, uniqueBy } from "./utils.js";
 
 const html = htm.bind(h);
 
@@ -34,12 +34,18 @@ function Cell({ className, isMarked, image, onClick, text }) {
   </div>`;
 }
 
-function generateBoard(boardSize) {
+function getOptions(boardSize) {
   const weightedOptions = cardOptions.flatMap((option) =>
     Array(option.weight).fill(option),
   );
+  const shuffledOptions = shuffleArray(weightedOptions);
+  const uniqueOptions = uniqueBy(shuffledOptions, "text");
 
-  const options = shuffleArray(weightedOptions).slice(0, boardSize * boardSize);
+  return uniqueOptions.slice(0, boardSize * boardSize);
+}
+
+function generateBoard(boardSize) {
+  const options = getOptions(boardSize);
 
   const x = Math.floor(boardSize / 2);
   const center = boardSize * x + x;

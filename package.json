@@ -6,6 +6,7 @@
   "author": "Jonathan Rehm <jonathan@rehm.me>",
   "license": "MIT",
   "private": true,
+  "packageManager": "yarn@4.18.0",
   "scripts": {
     "docker": "run-s _docker:build _docker:publish",
     "_docker:build": "docker build -t docker.rehm.me/conference-bingo:latest .",

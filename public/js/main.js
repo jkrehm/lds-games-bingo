@@ -4,7 +4,7 @@ import {
   useEffect,
   useMemo,
   useState,
-} from "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module";
+} from "https://unpkg.com/preact@latest/hooks?module";
 import htm from "https://unpkg.com/htm@3.1.0/dist/htm.module.js?module";
 import useCalculateWin from "./useCalculateWin.js";
 import cardOptions from "./CardOptions.js";

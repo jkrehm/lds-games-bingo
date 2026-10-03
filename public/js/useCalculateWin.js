@@ -1,7 +1,7 @@
 import {
   useEffect,
   useRef,
-} from "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module";
+} from "https://unpkg.com/preact@latest/hooks?module";
 
 function checkDown(markedGrid, x) {
   for (let i = 0; i < markedGrid.length; i += 1) {

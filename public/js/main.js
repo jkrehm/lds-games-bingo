@@ -2,7 +2,9 @@ import { h, render } from "https://unpkg.com/preact@latest?module";
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
+  useRef,
   useState,
 } from "https://unpkg.com/preact@latest/hooks?module";
 import htm from "https://unpkg.com/htm@3.1.0/dist/htm.module.js?module";
@@ -30,8 +32,39 @@ function Cell({ className, isMarked, image, onClick, text }) {
       class="w-full h-full bg-contain bg-center bg-no-repeat"
       style="background-image: url('img/bingo/${image}')"
     ></div>
-    <p class="truncate text-[10px] capitalize max-w-full">${text}</p>
+    <${CellLabel} text=${text} />
   </div>`;
+}
+
+// Centered when it fits; otherwise starts clipped and pans to reveal the rest (see .marquee in index.html)
+function CellLabel({ text }) {
+  const containerRef = useRef(null);
+  const textRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const label = textRef.current;
+    const measure = () => {
+      const overflow = Math.max(0, label.offsetWidth - container.clientWidth);
+      container.style.setProperty("--overflow", `${overflow}px`);
+      container.classList.toggle("marquee", overflow > 0);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [text]);
+
+  return html`<p
+    ref=${containerRef}
+    class="overflow-hidden whitespace-nowrap text-[10px] capitalize max-w-full"
+  >
+    <span ref=${textRef} class="inline-block">${text}</span>
+  </p>`;
 }
 
 function getOptions(boardSize) {

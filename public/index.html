@@ -9,6 +9,16 @@
 
   <link rel="stylesheet" href="css/reset.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .marquee > span {
+      animation: marquee 6s ease-in-out infinite;
+    }
+    @keyframes marquee {
+      0%, 50% { transform: translateX(0); }
+      60%, 90% { transform: translateX(calc(-1 * var(--overflow))); }
+      100% { transform: translateX(0); }
+    }
+  </style>
 </head>
 <body>
   <main id="root"></main>
